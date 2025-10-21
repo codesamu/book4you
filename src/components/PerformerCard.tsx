@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Music } from "lucide-react";
+import { Star, MapPin, Music, LucideIcon } from "lucide-react";
 
 interface PerformerCardProps {
   name: string;
@@ -10,9 +10,10 @@ interface PerformerCardProps {
   rating: number;
   imageUrl: string;
   price: string;
+  icon?: LucideIcon;
 }
 
-const PerformerCard = ({ name, genre, location, rating, imageUrl, price }: PerformerCardProps) => {
+const PerformerCard = ({ name, genre, location, rating, imageUrl, price, icon: Icon = Music }: PerformerCardProps) => {
   return (
     <Card className="overflow-hidden group hover:shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:scale-105">
       <div className="relative h-64 overflow-hidden">
@@ -32,7 +33,7 @@ const PerformerCard = ({ name, genre, location, rating, imageUrl, price }: Perfo
           <h3 className="text-2xl font-bold mb-2">{name}</h3>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
-              <Music className="w-4 h-4" />
+              <Icon className="w-4 h-4" />
               <span>{genre}</span>
             </div>
             <div className="flex items-center gap-1">
