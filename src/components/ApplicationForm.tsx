@@ -48,7 +48,7 @@ const ApplicationForm = () => {
                   <Label htmlFor="name" className="text-sm">Künstlername *</Label>
                   <Input 
                     id="name" 
-                    placeholder="z.B. DJ Thunderbeat" 
+                    placeholder="z.B. DJ Martini" 
                     required 
                   />
                 </div>
@@ -106,7 +106,7 @@ const ApplicationForm = () => {
                   <Label htmlFor="location" className="text-sm">Standort *</Label>
                   <Input 
                     id="location" 
-                    placeholder="z.B. Berlin" 
+                    placeholder="z.B. Innsbruck" 
                     required 
                   />
                 </div>

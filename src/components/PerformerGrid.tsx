@@ -1,14 +1,15 @@
 import PerformerCard from "./PerformerCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Music, Mic2, Headphones, Lightbulb, Camera, Utensils, Sparkles } from "lucide-react";
+import djFrontiImage from "@/assets/dj_fronti.jpeg";
 
 const performers = [
   {
-    name: "DJ Soundwave",
-    genre: "Electronic / House",
-    location: "Berlin",
+    name: "DJ samu",
+    genre: "Techno / House",
+    location: "Innsbruck",
     rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1571266028243-d220c6c2e144?w=800&h=600&fit=crop",
+    imageUrl: djFrontiImage,
     price: "ab 800€",
     icon: Headphones,
     category: "dj"
@@ -24,32 +25,12 @@ const performers = [
     category: "band"
   },
   {
-    name: "DJ Phoenix",
-    genre: "Hip-Hop / R&B",
-    location: "München",
-    rating: 4,
-    imageUrl: "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=800&h=600&fit=crop",
-    price: "ab 600€",
-    icon: Headphones,
-    category: "dj"
-  },
-  {
-    name: "ProSound Technik",
-    genre: "Tontechnik & PA",
-    location: "Berlin",
+    name: "Verkabelung Falkner",
+    genre: "Technik",
+    location: "Innsbruck",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&h=600&fit=crop",
     price: "ab 500€",
-    icon: Mic2,
-    category: "technik"
-  },
-  {
-    name: "LightShow Productions",
-    genre: "Lichttechnik & Bühne",
-    location: "Köln",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
-    price: "ab 600€",
     icon: Lightbulb,
     category: "technik"
   },
@@ -62,66 +43,6 @@ const performers = [
     price: "ab 400€",
     icon: Camera,
     category: "service"
-  },
-  {
-    name: "Gourmet Catering Plus",
-    genre: "Catering & Getränke",
-    location: "München",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=600&fit=crop",
-    price: "ab 25€/Person",
-    icon: Utensils,
-    category: "service"
-  },
-  {
-    name: "Deko Dreams",
-    genre: "Event-Dekoration",
-    location: "Frankfurt",
-    rating: 4,
-    imageUrl: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop",
-    price: "ab 300€",
-    icon: Sparkles,
-    category: "service"
-  },
-  {
-    name: "Jazz Collective",
-    genre: "Jazz / Swing",
-    location: "Frankfurt",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=600&fit=crop",
-    price: "ab 1.500€",
-    icon: Music,
-    category: "band"
-  },
-  {
-    name: "VideoMasters Production",
-    genre: "Videografie & Streaming",
-    location: "Berlin",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&h=600&fit=crop",
-    price: "ab 700€",
-    icon: Camera,
-    category: "service"
-  },
-  {
-    name: "StageForce Technik",
-    genre: "Bühnenbau & Equipment",
-    location: "Düsseldorf",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop",
-    price: "ab 800€",
-    icon: Lightbulb,
-    category: "technik"
-  },
-  {
-    name: "DJ Velocity",
-    genre: "Drum & Bass",
-    location: "Stuttgart",
-    rating: 4,
-    imageUrl: "https://images.unsplash.com/photo-1571327073757-71d13c24de30?w=800&h=600&fit=crop",
-    price: "ab 700€",
-    icon: Headphones,
-    category: "dj"
   }
 ];
 
