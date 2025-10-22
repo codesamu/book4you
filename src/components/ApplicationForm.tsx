@@ -29,26 +29,23 @@ const ApplicationForm = () => {
   };
 
   return (
-    <section id="apply" className="py-20">
+    <section id="apply" className="py-24 bg-secondary">
       <div className="container px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12 space-y-4">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-4">
-              <Music className="w-8 h-8 text-primary-foreground" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Werde Teil unserer Plattform
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12 space-y-3">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Jetzt bewerben
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Erreiche tausende Event-Veranstalter und präsentiere dein Talent
+            <p className="text-lg text-muted-foreground">
+              Werde Teil der Plattform
             </p>
           </div>
 
-          <Card className="p-8 shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.2)]">
+          <Card className="p-8 border border-border bg-background">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Künstlername *</Label>
+                  <Label htmlFor="name" className="text-sm">Künstlername *</Label>
                   <Input 
                     id="name" 
                     placeholder="z.B. DJ Thunderbeat" 
@@ -57,7 +54,7 @@ const ApplicationForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="type">Art *</Label>
+                  <Label htmlFor="type" className="text-sm">Art *</Label>
                   <Select required>
                     <SelectTrigger>
                       <SelectValue placeholder="Wähle eine Kategorie" />
@@ -66,6 +63,8 @@ const ApplicationForm = () => {
                       <SelectItem value="dj">DJ</SelectItem>
                       <SelectItem value="band">Band</SelectItem>
                       <SelectItem value="live">Live-Musiker</SelectItem>
+                      <SelectItem value="technik">Techniker</SelectItem>
+                      <SelectItem value="service">Service</SelectItem>
                       <SelectItem value="other">Sonstiges</SelectItem>
                     </SelectContent>
                   </Select>
@@ -74,7 +73,7 @@ const ApplicationForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="email">E-Mail *</Label>
+                  <Label htmlFor="email" className="text-sm">E-Mail *</Label>
                   <Input 
                     id="email" 
                     type="email" 
@@ -84,7 +83,7 @@ const ApplicationForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Telefon</Label>
+                  <Label htmlFor="phone" className="text-sm">Telefon</Label>
                   <Input 
                     id="phone" 
                     type="tel" 
@@ -95,7 +94,7 @@ const ApplicationForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="genre">Genre *</Label>
+                  <Label htmlFor="genre" className="text-sm">Genre *</Label>
                   <Input 
                     id="genre" 
                     placeholder="z.B. House, Techno, Rock" 
@@ -104,7 +103,7 @@ const ApplicationForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="location">Standort *</Label>
+                  <Label htmlFor="location" className="text-sm">Standort *</Label>
                   <Input 
                     id="location" 
                     placeholder="z.B. Berlin" 
@@ -114,17 +113,17 @@ const ApplicationForm = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="experience">Erfahrung & Referenzen *</Label>
+                <Label htmlFor="experience" className="text-sm">Erfahrung & Referenzen *</Label>
                 <Textarea 
                   id="experience" 
-                  placeholder="Erzähl uns von deiner Erfahrung, vergangenen Events und besonderen Highlights..."
+                  placeholder="Erzähl uns von deiner Erfahrung..."
                   className="min-h-32"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="links">Links (Website, SoundCloud, etc.)</Label>
+                <Label htmlFor="links" className="text-sm">Links (Website, SoundCloud, etc.)</Label>
                 <Input 
                   id="links" 
                   placeholder="https://..." 
@@ -137,17 +136,10 @@ const ApplicationForm = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  "Wird gesendet..."
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Bewerbung absenden
-                  </>
-                )}
+                {isSubmitting ? "Wird gesendet..." : "Bewerbung absenden"}
               </Button>
 
-              <p className="text-sm text-muted-foreground text-center">
+              <p className="text-xs text-muted-foreground text-center">
                 * Pflichtfelder
               </p>
             </form>

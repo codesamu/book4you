@@ -127,24 +127,24 @@ const performers = [
 
 const PerformerGrid = () => {
   return (
-    <section id="performers" className="py-20 bg-muted/30">
+    <section id="performers" className="py-24 bg-background">
       <div className="container px-4">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Alle Event-Dienstleister
+        <div className="text-center mb-16 space-y-3">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+            Event-Dienstleister
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Von Musik über Technik bis Catering – alles für dein perfektes Event
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Professionelle Services für dein Event
           </p>
         </div>
 
         <Tabs defaultValue="all" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-5 mb-12">
-            <TabsTrigger value="all">Alle</TabsTrigger>
-            <TabsTrigger value="dj">DJs</TabsTrigger>
-            <TabsTrigger value="band">Bands</TabsTrigger>
-            <TabsTrigger value="technik">Technik</TabsTrigger>
-            <TabsTrigger value="service">Services</TabsTrigger>
+          <TabsList className="grid w-full max-w-xl mx-auto grid-cols-5 mb-12 h-11">
+            <TabsTrigger value="all" className="text-sm">Alle</TabsTrigger>
+            <TabsTrigger value="dj" className="text-sm">DJs</TabsTrigger>
+            <TabsTrigger value="band" className="text-sm">Bands</TabsTrigger>
+            <TabsTrigger value="technik" className="text-sm">Technik</TabsTrigger>
+            <TabsTrigger value="service" className="text-sm">Services</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-0">

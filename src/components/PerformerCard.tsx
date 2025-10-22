@@ -15,28 +15,27 @@ interface PerformerCardProps {
 
 const PerformerCard = ({ name, genre, location, rating, imageUrl, price, icon: Icon = Music }: PerformerCardProps) => {
   return (
-    <Card className="overflow-hidden group hover:shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.25)] transition-all duration-300 hover:scale-105">
-      <div className="relative h-64 overflow-hidden">
+    <Card className="overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-200 border border-border">
+      <div className="relative h-56 overflow-hidden bg-muted">
         <img 
           src={imageUrl} 
           alt={name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+        <Badge className="absolute top-4 right-4 bg-background text-foreground border border-border">
           {price}
         </Badge>
       </div>
       
-      <div className="p-6 space-y-4">
+      <div className="p-5 space-y-4">
         <div>
-          <h3 className="text-2xl font-bold mb-2">{name}</h3>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
+          <h3 className="text-xl font-semibold mb-2">{name}</h3>
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1.5">
               <Icon className="w-4 h-4" />
               <span>{genre}</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4" />
               <span>{location}</span>
             </div>
@@ -48,16 +47,16 @@ const PerformerCard = ({ name, genre, location, rating, imageUrl, price, icon: I
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 ${
-                  i < rating ? "text-accent fill-accent" : "text-muted"
+                className={`w-3.5 h-3.5 ${
+                  i < rating ? "text-foreground fill-foreground" : "text-muted"
                 }`}
               />
             ))}
           </div>
-          <span className="text-sm font-medium">({rating}.0)</span>
+          <span className="text-sm text-muted-foreground">({rating}.0)</span>
         </div>
 
-        <Button className="w-full" size="lg">
+        <Button className="w-full" size="default">
           Anfrage senden
         </Button>
       </div>
