@@ -6,26 +6,64 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Music, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
 
 const ApplicationForm = () => {
   const { toast } = useToast();
+  const { user } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    artistName: "",
+    type: "",
+    email: "",
+    phone: "",
+    genre: "",
+    location: "",
+    experience: "",
+    links: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    toast({
-      title: "Bewerbung eingegangen!",
-      description: "Wir melden uns innerhalb von 48 Stunden bei dir.",
+    const { error } = await supabase.from("applications").insert({
+      user_id: user?.id || null,
+      artist_name: formData.artistName,
+      type: formData.type,
+      email: formData.email,
+      phone: formData.phone || null,
+      genre: formData.genre,
+      location: formData.location,
+      experience: formData.experience,
+      links: formData.links || null,
     });
 
+    if (error) {
+      toast({
+        title: "Fehler",
+        description: "Die Bewerbung konnte nicht gesendet werden.",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Bewerbung eingegangen!",
+        description: "Wir melden uns innerhalb von 48 Stunden bei dir.",
+      });
+      setFormData({
+        artistName: "",
+        type: "",
+        email: "",
+        phone: "",
+        genre: "",
+        location: "",
+        experience: "",
+        links: "",
+      });
+    }
+
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -47,7 +85,9 @@ const ApplicationForm = () => {
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm">Künstlername *</Label>
                   <Input 
-                    id="name" 
+                    id="name"
+                    value={formData.artistName}
+                    onChange={(e) => setFormData({...formData, artistName: e.target.value})}
                     placeholder="z.B. DJ Martini" 
                     required 
                   />
@@ -55,7 +95,7 @@ const ApplicationForm = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="type" className="text-sm">Art *</Label>
-                  <Select required>
+                  <Select value={formData.type} onValueChange={(value) => setFormData({...formData, type: value})} required>
                     <SelectTrigger>
                       <SelectValue placeholder="Wähle eine Kategorie" />
                     </SelectTrigger>
@@ -76,7 +116,9 @@ const ApplicationForm = () => {
                   <Label htmlFor="email" className="text-sm">E-Mail *</Label>
                   <Input 
                     id="email" 
-                    type="email" 
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
                     placeholder="deine@email.de" 
                     required 
                   />
@@ -86,7 +128,9 @@ const ApplicationForm = () => {
                   <Label htmlFor="phone" className="text-sm">Telefon</Label>
                   <Input 
                     id="phone" 
-                    type="tel" 
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     placeholder="+49 123 456789" 
                   />
                 </div>
@@ -96,7 +140,9 @@ const ApplicationForm = () => {
                 <div className="space-y-2">
                   <Label htmlFor="genre" className="text-sm">Genre *</Label>
                   <Input 
-                    id="genre" 
+                    id="genre"
+                    value={formData.genre}
+                    onChange={(e) => setFormData({...formData, genre: e.target.value})}
                     placeholder="z.B. House, Techno, Rock" 
                     required 
                   />
@@ -105,7 +151,9 @@ const ApplicationForm = () => {
                 <div className="space-y-2">
                   <Label htmlFor="location" className="text-sm">Standort *</Label>
                   <Input 
-                    id="location" 
+                    id="location"
+                    value={formData.location}
+                    onChange={(e) => setFormData({...formData, location: e.target.value})}
                     placeholder="z.B. Innsbruck" 
                     required 
                   />
@@ -115,7 +163,9 @@ const ApplicationForm = () => {
               <div className="space-y-2">
                 <Label htmlFor="experience" className="text-sm">Erfahrung & Referenzen *</Label>
                 <Textarea 
-                  id="experience" 
+                  id="experience"
+                  value={formData.experience}
+                  onChange={(e) => setFormData({...formData, experience: e.target.value})}
                   placeholder="Erzähl uns von deiner Erfahrung..."
                   className="min-h-32"
                   required
@@ -125,7 +175,9 @@ const ApplicationForm = () => {
               <div className="space-y-2">
                 <Label htmlFor="links" className="text-sm">Links (Website, SoundCloud, etc.)</Label>
                 <Input 
-                  id="links" 
+                  id="links"
+                  value={formData.links}
+                  onChange={(e) => setFormData({...formData, links: e.target.value})}
                   placeholder="https://..." 
                 />
               </div>
