@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container relative z-10 px-4 py-32">
         <div className="max-w-5xl mx-auto text-center space-y-10">
           <h1 className="text-6xl md:text-8xl font-semibold text-foreground tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Event Booking Platform
+            Book4you
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
