@@ -27,7 +27,7 @@ const Hero = () => {
               onClick={() => scrollToSection("performers")}
               className="text-base"
             >
-              Künstler entdecken
+              Künstler & Anderes entdecken
             </Button>
             <Button 
               size="lg" 
