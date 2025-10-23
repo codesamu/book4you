@@ -51,24 +51,26 @@ const performers = [
 
 const PerformerGrid = () => {
   return (
-    <section id="performers" className="py-24 bg-background">
-      <div className="container px-4">
-        <div className="text-center mb-16 space-y-3">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+    <section id="performers" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 opacity-30" style={{ background: 'var(--gradient-hero)' }} />
+      
+      <div className="container px-4 relative z-10">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight">
             Event-Dienstleister
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Professionelle Services für dein Event
           </p>
         </div>
 
         <Tabs defaultValue="all" className="w-full">
-          <TabsList className="grid w-full max-w-xl mx-auto grid-cols-5 mb-12 h-11">
-            <TabsTrigger value="all" className="text-sm">Alle</TabsTrigger>
-            <TabsTrigger value="dj" className="text-sm">DJs</TabsTrigger>
-            <TabsTrigger value="band" className="text-sm">Bands</TabsTrigger>
-            <TabsTrigger value="technik" className="text-sm">Technik</TabsTrigger>
-            <TabsTrigger value="service" className="text-sm">Services</TabsTrigger>
+          <TabsList className="grid w-full max-w-xl mx-auto grid-cols-5 mb-12 h-12 p-1 rounded-xl" style={{ background: 'var(--gradient-card)', boxShadow: 'var(--shadow-card)' }}>
+            <TabsTrigger value="all" className="text-sm font-semibold data-[state=active]:shadow-md">Alle</TabsTrigger>
+            <TabsTrigger value="dj" className="text-sm font-semibold data-[state=active]:shadow-md">DJs</TabsTrigger>
+            <TabsTrigger value="band" className="text-sm font-semibold data-[state=active]:shadow-md">Bands</TabsTrigger>
+            <TabsTrigger value="technik" className="text-sm font-semibold data-[state=active]:shadow-md">Technik</TabsTrigger>
+            <TabsTrigger value="service" className="text-sm font-semibold data-[state=active]:shadow-md">Services</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="mt-0">

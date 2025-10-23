@@ -33,14 +33,15 @@ const PerformerCard = ({ name, genre, location, rating, imageUrl, price, icon: I
   };
 
   return (
-    <Card className="overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all duration-200 border border-border">
+    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-border hover:border-primary/20 hover:scale-[1.02] group" style={{ boxShadow: 'var(--shadow-card)' }}>
       <div className="relative h-56 overflow-hidden bg-muted">
         <img 
           src={imageUrl} 
           alt={name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
-        <Badge className="absolute top-4 right-4 bg-background text-foreground border border-border">
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <Badge className="absolute top-4 right-4 font-bold text-sm px-3 py-1.5 shadow-lg" style={{ background: 'var(--gradient-accent)' }}>
           {price}
         </Badge>
       </div>
@@ -76,7 +77,7 @@ const PerformerCard = ({ name, genre, location, rating, imageUrl, price, icon: I
 
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button className="w-full" size="default">
+            <Button className="w-full font-semibold shadow-md hover:shadow-lg transition-all hover:scale-[1.02]" size="default" style={{ background: 'var(--gradient-primary)' }}>
               Anfrage senden
             </Button>
           </DialogTrigger>
