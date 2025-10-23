@@ -2,10 +2,13 @@ import PerformerCard from "./PerformerCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Music, Mic2, Headphones, Lightbulb, Camera, Utensils, Sparkles } from "lucide-react";
 import djFrontiImage from "@/assets/dj_fronti.jpeg";
+import lorenzimg from "@/assets/lorenz.jpeg";
+import falknerimg from "@/assets/falkner.jpeg";
+import yanikimg from "@/assets/yanik.jpeg";
 
 const performers = [
   {
-    name: "DJ samu",
+    name: "DJ Fronthaler",
     genre: "Techno / House",
     location: "Innsbruck",
     rating: 5,
@@ -15,31 +18,31 @@ const performers = [
     category: "dj"
   },
   {
-    name: "The Groove Band",
+    name: "Band Glaser",
     genre: "Funk / Soul",
-    location: "Hamburg",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800&h=600&fit=crop",
+    location: "Oetztal",
+    rating: 4,
+    imageUrl: lorenzimg,
     price: "ab 1.200€",
     icon: Music,
     category: "band"
   },
   {
-    name: "Verkabelung Falkner",
+    name: "Elektro Falkner",
     genre: "Technik",
     location: "Innsbruck",
     rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&h=600&fit=crop",
+    imageUrl: falknerimg,
     price: "ab 500€",
     icon: Lightbulb,
     category: "technik"
   },
   {
-    name: "EventSnap Photography",
+    name: "Photography Plankensteiner",
     genre: "Event-Fotografie",
-    location: "Hamburg",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=600&fit=crop",
+    location: "Innsbruck",
+    rating: 3,
+    imageUrl: yanikimg,
     price: "ab 400€",
     icon: Camera,
     category: "service"
